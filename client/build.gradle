@@ -1,19 +1,20 @@
 plugins {
+    id 'org.springframework.boot' version '3.2.5'
+    id 'io.spring.dependency-management' version '1.1.4'
     id 'java'
 }
 
-group = 'org.example'
-version = '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation project(':common')
+    implementation project(':grpc-service') //해당 모듈의 클래스, 파일 가져오기, 의존성은 못가져옴
+
+    restDependencies.each { implementation it }
+    grpcDependencies.each { implementation it }
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
 
-test {
-    useJUnitPlatform()
+bootJar {
+    archiveFileName = 'rest-service.jar'
 }

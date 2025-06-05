@@ -6,16 +6,13 @@ plugins {
 
 dependencies {
     implementation project(':common')
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    restDependencies.each { implementation it }
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
 
 bootJar {
     archiveFileName = 'rest-service.jar'
-}
-
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
 }

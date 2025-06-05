@@ -8,12 +8,9 @@ plugins {
 dependencies {
     implementation project(':common')
 
-    implementation 'net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE'
-    implementation 'io.grpc:grpc-netty-shaded:1.60.1'
-    implementation 'io.grpc:grpc-protobuf:1.60.1'
-    implementation 'io.grpc:grpc-stub:1.60.1'
-    implementation 'jakarta.annotation:jakarta.annotation-api:1.3.5' //java 17이상의 최신 JDK에서는 Generated Annotation이 제거되어 에러남.
+    grpcDependencies.each { implementation it } //루트 build.gradle의 의존성 순회하며 사용
 
+    implementation 'jakarta.annotation:jakarta.annotation-api:1.3.5'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
