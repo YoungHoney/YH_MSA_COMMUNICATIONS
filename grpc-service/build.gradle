@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.5'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'com.google.protobuf' version '0.9.4'
+}
+
+dependencies {
+    implementation project(':common')
+
+    implementation 'net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE'
+    implementation 'io.grpc:grpc-netty-shaded:1.60.1'
+    implementation 'io.grpc:grpc-protobuf:1.60.1'
+    implementation 'io.grpc:grpc-stub:1.60.1'
+    implementation 'jakarta.annotation:jakarta.annotation-api:1.3.5' //java 17이상의 최신 JDK에서는 Generated Annotation이 제거되어 에러남.
+
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.25.3"
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.60.1'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.plugins {
+                grpc {}
+            }
+        }
+    }
+}
+
+bootJar {
+    archiveFileName = 'grpc-service.jar'
+}

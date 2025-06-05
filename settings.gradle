@@ -1,0 +1,10 @@
+rootProject.name = 'YH_MSA_COMMUNICATIONS'
+include 'common'
+include 'rest-service'
+include 'grpc-service'
+include 'websocket-service'
+include 'rabbitmq-service'
+include 'kafka-service'
+include 'nats-service'
+include 'client'
+

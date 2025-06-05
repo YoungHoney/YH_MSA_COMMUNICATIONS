@@ -1,0 +1,37 @@
+# Gradle build stuff
+.gradle/
+build/
+**/build/
+
+# Include gradle wrapper
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+!gradlew
+!gradlew.bat
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+**/out/
+
+# VS Code
+.vscode/
+
+# OS/환경 관련
+.DS_Store
+
+# Generated code
+**/generated/
+**/generated-sources/
+**/proto-gen/
+
+# Environment config
+.env
+*.env
+
+# Binaries
+*.jar
+*.war
