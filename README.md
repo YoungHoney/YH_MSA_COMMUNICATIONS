@@ -43,7 +43,7 @@
 
 1.  **프로젝트 클론**
     ```bash
-    git clone [https://github.com/your-username/YH_MSA_COMMUNICATIONS.git](https://github.com/your-username/YH_MSA_COMMUNICATIONS.git)
+    git clone https://github.com/YoungHoney/YH_MSA_COMMUNICATIONS.git
     cd YH_MSA_COMMUNICATIONS
     ```
 
@@ -74,7 +74,7 @@
 
 1.  **프로젝트 클론**
     ```bash
-    git clone [https://github.com/your-username/YH_MSA_COMMUNICATIONS.git](https://github.com/your-username/YH_MSA_COMMUNICATIONS.git)
+    git clone https://github.com/YoungHoney/YH_MSA_COMMUNICATIONS.git
     cd YH_MSA_COMMUNICATIONS
     ```
 
