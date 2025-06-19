@@ -6,7 +6,7 @@ plugins {
 
 dependencies {
     implementation project(':common')
-
+    implementation 'org.springframework.boot:spring-boot-starter-web' //grpc쪽 boot, starter와 마찬가지로 자동으로 포트점유하고 서버 열려고 해서 서브모듈 의존성으로 옮김
     restDependencies.each { implementation it }
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

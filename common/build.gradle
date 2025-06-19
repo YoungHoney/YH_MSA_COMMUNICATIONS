@@ -1,6 +1,8 @@
 
 plugins {
-    id 'java-library' //  other module can bring this.
+    id 'java-library' //  other module can bring this
+    id 'com.google.protobuf' version '0.9.4'
+
 }
 
 group = 'com.example'
@@ -11,6 +13,16 @@ repositories {
 }
 
 dependencies {
+
+
+    // gRPC 코드가 의존하는 최소한의 gRPC 런타임 라이브러리만 추가.
+    // 서버 스타터는 추가하지 않음.
+    implementation 'io.grpc:grpc-stub:1.60.1'
+    implementation 'io.grpc:grpc-protobuf:1.60.1'
+    implementation 'com.google.protobuf:protobuf-java:3.25.3'
+
+
+
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
@@ -18,4 +30,23 @@ dependencies {
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
+}
+
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.25.3"
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.60.1'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.plugins {
+                grpc {}
+            }
+        }
+    }
 }

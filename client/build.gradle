@@ -6,15 +6,15 @@ plugins {
 
 dependencies {
     implementation project(':common')
-    implementation project(':grpc-service') //해당 모듈의 클래스, 파일 가져오기, 의존성은 못가져옴
+
 
     restDependencies.each { implementation it }
     grpcDependencies.each { implementation it }
-
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 }
 
 bootJar {
-    archiveFileName = 'rest-service.jar'
+    archiveFileName = 'client.jar'
 }

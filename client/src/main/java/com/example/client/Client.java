@@ -1,5 +1,5 @@
 package com.example.client;
 
 public interface Client {
-    void sendMessage(String content);
+    String sendMessage(String content);
 }

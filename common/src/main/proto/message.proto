@@ -1,4 +1,4 @@
-
+//grpc-service의 .proto와 같은것, 원래 중앙화된 레포지토리에서 관리되어야 하나, 편의성, 단순성 위해 common모듈에 .proto를 뒀음
 syntax = "proto3";
 
 option java_multiple_files = true;
