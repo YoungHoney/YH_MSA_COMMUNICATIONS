@@ -14,6 +14,7 @@ import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PreDestroy;
@@ -31,10 +32,17 @@ public class GrpcClientImpl implements Client {
     private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
 
-    public GrpcClientImpl() {
-        this.channel = ManagedChannelBuilder.forAddress("localhost", 9090)
+    public GrpcClientImpl(
+            @Value("${grpc.server.host}") String grpcHost,
+            @Value("${grpc.server.port}") int grpcPort
+    ) {
+        log.info("gRPC 서버에 연결을 시도합니다. -> host: {}, port: {}", grpcHost, grpcPort);
+
+        // 주입받은 값으로 채널을 생성합니다.
+        this.channel = ManagedChannelBuilder.forAddress(grpcHost, grpcPort)
                 .usePlaintext()
                 .build();
+
         this.blockingStub = MessageServiceGrpc.newBlockingStub(channel);
         this.asyncStub = MessageServiceGrpc.newStub(channel);
     }

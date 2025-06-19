@@ -1,2 +1,13 @@
 server:
   port: 8079
+
+
+grpc:
+  server:
+    host: 43.201.23.166  #로컬 테스트시 localhost로 진행.
+    port: 9090
+
+Rest:
+  server:
+    host: 43.201.23.166 #로컬 테스트시 localhost로 진행.
+    port: 8080
