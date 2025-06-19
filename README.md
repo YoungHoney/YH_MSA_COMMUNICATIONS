@@ -112,6 +112,7 @@
     로컬 PC에서 실행 중인 서버들과 통신하는 결과가 출력됩니다.
 
 ## 5. 프로젝트 구조
+```
 YH_MSA_COMMUNICATIONS/
 ├── client/          # REST, gRPC 클라이언트 구현 및 테스트 모듈
 ├── common/          # 공통 DTO, gRPC .proto 파일 및 생성된 코드 모듈
@@ -120,3 +121,4 @@ YH_MSA_COMMUNICATIONS/
 ├── build.gradle     # 루트 프로젝트 빌드 스크립트
 ├── settings.gradle  # 멀티 모듈 설정
 └── ...
+```
